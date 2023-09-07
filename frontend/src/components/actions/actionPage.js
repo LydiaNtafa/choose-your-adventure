@@ -11,20 +11,14 @@ import SpaceMusic from "../../music/SpaceMusic.mp3";
 import Slider from "@mui/material/Slider";
 import volumeImage from "./volumeImage.png";
 import messageLoad from "./loading_messages";
+import { sessionContext } from "../contextProviders/sessionContext";
+import { useContext } from "react";
 
 var randomElement = messageLoad[Math.floor(Math.random() * messageLoad.length)];
 
-const ActionPage = ({
-  setScenario,
-  setActions,
-  setStatus,
-  actions,
-  scenario,
-  status,
-  navigate,
-  genre,
-  imgClass,
-}) => {
+// const ActionPage = ({setScenario,setActions,setStatus,actions,scenario,status,navigate,genre,imgClass,}) => {
+const ActionPage = () => {
+  const {setScenario,setActions,setStatus,actions,scenario,status,navigate,genre,imgClass} = useContext(sessionContext);
   const [selectedAction, setSelectedAction] = useState("");
   const [loading, setLoading] = useState(false);
   const [musicUrl, setMusicUrl] = useState("");

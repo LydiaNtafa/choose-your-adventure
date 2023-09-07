@@ -8,6 +8,8 @@ import Container from "@mui/material/Container";
 import ToggleHowToPlay from "../howToPlay/toggleHowTo";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../app/App.css"
+import { sessionContext } from "../contextProviders/sessionContext";
+import { useContext } from "react";
 
 
 const defaultTheme = createTheme({
@@ -22,7 +24,9 @@ const defaultTheme = createTheme({
 });
 
 
-const Homepage = ({ setScenario, setActions, navigate, setImgClass }) => {
+// const Homepage = ({ setScenario, setActions, navigate, setImgClass }) => {
+const Homepage = () => {
+  const {setScenario, setActions, navigate, setImgClass} = useContext(sessionContext);
   return (
     <body>
     <ThemeProvider theme={defaultTheme}>
